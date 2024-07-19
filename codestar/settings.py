@@ -31,6 +31,11 @@ DEBUG = False
 
 ALLOWED_HOSTS = ['8000-graceyuguo-djangopracti-of4dzpj9m7a.ws.codeinstitute-ide.net','.herokuapp.com']
 
+CSRF_TRUSTED_ORIGINS = [
+    "https://8000-graceyuguo-djangopracti-of4dzpj9m7a.ws.codeinstitute-ide.net",
+    "https://*.codeanyapp.com",
+    "https://*.herokuapp.com"
+]
 
 # Application definition
 
