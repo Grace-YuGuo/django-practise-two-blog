@@ -2,19 +2,20 @@ from django.shortcuts import render
 # from django.http import HttpResponse
 from django.views import generic
 from django.contrib import messages
-from .models import About
 from django.shortcuts import render,get_object_or_404
+from .models import About
 from .forms import CollaborateRequestForm
 
 # Create your views here.
 def about(request):
     """
+    Renders the most recent information on the website author and allows user collaboraton requests.
     Display an individual : model:`about.About`.
     **Context**
-
-    ``post``
-        An instance of : model:`about.About`.
-
+    ``about``
+        The most recent instance of :model: `about.About`
+    ``collaborate_form`
+        An instance of :form:`about.CollaborateForm`.
     **Template:**
     :template:`about/About.html`
     """
@@ -22,7 +23,6 @@ def about(request):
     # Handle the POST request from the comment form
     if request.method == "POST":
          collaborator_form = CollaborateRequestForm(data=request.POST)
-         print(collaborator_form)
          if collaborator_form.is_valid():
             collaborate = collaborator_form.save(commit=False)
             collaborate.read=False
