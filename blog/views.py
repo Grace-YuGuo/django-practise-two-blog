@@ -42,7 +42,7 @@ def post_detail(request,slug):
             comment.post = post
             comment.save()
             messages.add_message(request,messages.SUCCESS,'Comment submitted and awaiting approval')
-            
+    
     comment_form = CommentForm()
 
     return render(request,"blog/post_detail.html",{"post":post, 
